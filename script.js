@@ -8,7 +8,7 @@ const displayMessage = function (message) {
   document.querySelector('.message').textContent = message;
 };
 
-document.querySelector('.check').addEventListener('click', function () {
+const checkGuess = function () {
   const guess = Number(document.querySelector('.guess').value);
   console.log(guess, typeof guess);
 
@@ -41,6 +41,13 @@ document.querySelector('.check').addEventListener('click', function () {
       displayMessage('You lost the game');
       document.querySelector('.score').textContent = 0;
     }
+  }
+};
+
+document.querySelector('.check').addEventListener('click', checkGuess);
+document.querySelector('.guess').addEventListener('keydown',function(event){
+  if (event.key === "Enter"){
+    checkGuess();
   }
 });
 
